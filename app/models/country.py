@@ -1,5 +1,6 @@
 from typing import Any, TypedDict
 from app.models.hash_table import HashTable
+from app.models.packages import find_package, load_packages
 from app.repository.country_repository import CountryRepository
 
 
@@ -118,22 +119,15 @@ class CountryModel:
         regions = {item["region"].lower() for item in covered}
         num_stops = len(covered)
 
-        if not covered:
-            package = None
-        elif len(regions) == 1 and "europa" in next(iter(regions)):
-            package = (
-                {"code": 101, "name": "Europa Basic", "data": "5 GB", "validity": "15 dias"}
-                if num_stops <= 2
-                else {"code": 102, "name": "Europa Plus", "data": "10 GB", "validity": "30 dias"}
-            )
-        elif len(regions) == 1 and ("américa" in next(iter(regions)) or "america" in next(iter(regions))):
-            package = (
-                {"code": 201, "name": "América Basic", "data": "5 GB", "validity": "15 dias"}
-                if num_stops <= 2
-                else {"code": 202, "name": "América Plus", "data": "15 GB", "validity": "30 dias"}
-            )
-        else:
-            package = {"code": 301, "name": "Global", "data": "20 GB", "validity": "30 dias"}
+        package_code = None
+        if covered:
+            if len(regions) == 1 and "europa" in next(iter(regions)):
+                package_code = 101 if num_stops <= 2 else 102
+            elif len(regions) == 1 and ("américa" in next(iter(regions)) or "america" in next(iter(regions))):
+                package_code = 201 if num_stops <= 2 else 202
+            else:
+                package_code = 301
+        package = find_package(load_packages(), package_code)
 
         return {
             "valid": True,

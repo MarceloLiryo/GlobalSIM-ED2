@@ -8,22 +8,20 @@ class Client:
     pacote de dados contratado e status da linha.
     """
 
-    listClients: list["Client"] = []
-
     def __init__(
         self,
         id: int,
         name: str,
         email: str,
         esim: str,
-        pacote: str,
+        pacote: int | str,
         status: str = "ativo",
     ):
         self.id: int = id
         self.name: str = name
         self.email: str = email
         self.esim: str = esim
-        self.pacote: str = pacote
+        self.pacote: int | str = pacote
         self.status: str = status
 
     def __lt__(self, other: Any) -> bool:
