@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}Clientes e eSIMs - GlobalSIM{% endblock %}
+{% block content %}
+<div class="clients-page">
+<div class="page-header">
+    <h1>Clientes e eSIMs</h1>
+    <p class="text-muted">Gerencie seus clientes, pacotes e destinos de viagem.</p>
+</div>
+{% if error %}<div class="alert alert-error" role="alert">{{ error }}</div>{% endif %}
+<div class="grid-2col">
+<section class="card">
+    <h2>{{ 'Alterar cliente' if editing else 'Cadastrar cliente' }}</h2>
+    <form method="POST" action="{{ url_for('clients.update', client_id=editing.id) if editing else url_for('clients.create') }}" class="stack-form">
+        <div class="form-group"><label for="client-id">ID único</label><input id="client-id" name="id" type="number" min="1" value="{{ editing.id if editing else '' }}" class="input-field" required {% if editing %}readonly{% endif %}></div>
+        <div class="form-group"><label for="client-name">Nome</label><input id="client-name" name="name" value="{{ editing.name if editing else '' }}" class="input-field" required></div>
+        <div class="form-group"><label for="client-email">E-mail</label><input id="client-email" name="email" type="email" value="{{ editing.email if editing else '' }}" class="input-field" required></div>
+        <div class="form-group"><label for="client-esim">eSIM</label><input id="client-esim" name="esim" value="{{ editing.esim if editing else '' }}" placeholder="ESIM-83921" class="input-field" required></div>
+        <div class="form-group"><label for="client-package">Pacote</label><select id="client-package" name="pacote" class="input-field" required>{% for p in packages %}<option value="{{ p.code }}" {% if editing and editing.pacote == p.code %}selected{% endif %}>{{ p.code }} · {{ p.name }} · {{ p.data }} · {{ p.validity }}</option>{% endfor %}</select></div>
+        <div class="form-group"><label for="client-status">Status</label><select id="client-status" name="status" class="input-field">{% for status in ['ativo', 'inativo', 'suspenso'] %}<option value="{{ status }}" {% if editing and editing.status == status %}selected{% endif %}>{{ status | capitalize }}</option>{% endfor %}</select></div>
+        <button class="btn btn-primary" type="submit">{{ 'Salvar alterações' if editing else 'Cadastrar' }}</button>
+        {% if editing %}<a href="{{ url_for('clients.dashboard') }}" class="btn btn-outline">Cancelar edição</a>{% endif %}
+    </form>
+</section>
+<section class="card">
+    <h2>Consultar cliente e destino</h2>
+    <form method="GET" action="{{ url_for('clients.dashboard') }}" class="stack-form">
+        <label for="search-id">ID do cliente</label><input id="search-id" name="id" type="number" min="1" value="{{ query }}" class="input-field" required>
+        <label for="destination">Código do destino (opcional)</label><input id="destination" name="destino" value="{{ destination }}" placeholder="IT" maxlength="3" class="input-field">
+        <button class="btn btn-primary" type="submit">Consultar</button>
+    </form>
+    {% if found %}
+    <div class="result-box result-success">
+        <h3>{{ found.name }} · #{{ found.id }}</h3>
+        <p>{{ found.email }}<br>eSIM: {{ found.esim }}<br>Status: {{ found.status }}</p>
+        {% for p in packages if p.code == found.pacote %}<p>Pacote: {{ p.name }} (#{{ p.code }}) · {{ p.data }} · {{ p.validity }}</p>{% endfor %}
+        <a href="{{ url_for('clients.dashboard', editar=found.id) }}" class="btn btn-outline">Alterar cliente</a>
+        <p class="text-muted">Comparações na Árvore B: {{ comparisons }}</p>
+    </div>
+    {% endif %}
+    {% if integrated %}
+    <div class="result-box {{ 'result-success' if integrated.country else 'result-error' }}">
+        {% if integrated.country %}
+        <h3>Cobertura disponível: {{ integrated.country.country }}</h3>
+        <p>Região: {{ integrated.country.region }}<br>Operadora: {{ integrated.country.provider }}<br>Tecnologia: {{ integrated.country.tech }}</p>
+        {% else %}<h3>Sem cobertura para {{ destination }}</h3>{% endif %}
+        <p class="text-muted">Comparações: Árvore B {{ integrated.tree_comparisons }} · Tabela Hash {{ integrated.hash_comparisons }}</p>
+    </div>
+    {% endif %}
+</section>
+</div>
+<section class="card">
+    <h2>Recomendar pacote pelo roteiro</h2>
+    <p class="text-muted">Consulte os países da viagem e associe o pacote recomendado ao cliente e seu eSIM.</p>
+    <form method="GET" action="{{ url_for('clients.dashboard') }}" class="stack-form">
+        <label for="itinerary-id">ID do cliente</label><input id="itinerary-id" name="id" type="number" min="1" value="{{ query }}" class="input-field" required>
+        <label for="itinerary">Países separados por vírgula</label><input id="itinerary" name="roteiro" value="{{ itinerary }}" placeholder="PT, ES, FR, IT" class="input-field" required>
+        <button class="btn btn-primary" type="submit">Analisar roteiro</button>
+    </form>
+    {% if recommendation %}
+        {% if not recommendation.valid %}<p class="text-danger">{{ recommendation.error }}</p>
+        {% else %}
+            <p>Destinos cobertos: {% for country in recommendation.covered %}{{ country.country }} ({{ country.code }}){{ ', ' if not loop.last }}{% else %}Nenhum{% endfor %}</p>
+            {% if recommendation.uncovered %}<p class="text-danger">Sem cobertura: {{ recommendation.uncovered | join(', ') }}. Corrija o roteiro antes de associar o pacote.</p>{% endif %}
+            {% if recommendation.recommended_package %}
+                <div class="package-recommendation"><h3>{{ recommendation.recommended_package.name }}</h3><p>{{ recommendation.recommended_package.data }} · {{ recommendation.recommended_package.validity }}</p></div>
+                {% if found and not recommendation.uncovered %}
+                <form method="POST" action="{{ url_for('clients.assign_recommendation') }}">
+                    <input type="hidden" name="id" value="{{ found.id }}"><input type="hidden" name="roteiro" value="{{ itinerary }}">
+                    <button class="btn btn-primary" type="submit">Associar a {{ found.name }} · {{ found.esim }}</button>
+                </form>
+                {% endif %}
+            {% endif %}
+            <p class="text-muted">Comparações na Tabela Hash: {{ recommendation.total_hash_comparisons }}</p>
+        {% endif %}
+    {% endif %}
+</section>
+<section class="card">
+    <h2>Instrumentação da Árvore B</h2>
+    <div class="hero-stats">
+        <div class="stat-box"><span class="stat-value">{{ metrics.total_keys }}</span><span class="stat-label">Clientes</span></div>
+        <div class="stat-box"><span class="stat-value">{{ metrics.height }}</span><span class="stat-label">Altura</span></div>
+        <div class="stat-box"><span class="stat-value">{{ metrics.total_nodes }}</span><span class="stat-label">Nós</span></div>
+    </div>
+    <p>Máximo de {{ metrics.node_size }} chaves por nó · Chaves na raiz: {{ metrics.root_keys | join(', ') }}</p>
+</section>
+<section class="card">
+    <h2>Clientes cadastrados ({{ metrics.total_keys }})</h2>
+    <div class="table-responsive"><table class="data-table">
+        <thead><tr><th>ID</th><th>Nome</th><th>E-mail</th><th>eSIM</th><th>Pacote</th><th>Status</th><th>Ações</th></tr></thead>
+        <tbody>{% for client in clients %}<tr><td>{{ client.id }}</td><td>{{ client.name }}</td><td>{{ client.email }}</td><td>{{ client.esim }}</td><td>{{ client.pacote }}</td><td>{{ client.status }}</td><td><a href="{{ url_for('clients.dashboard', id=client.id) }}">Consultar</a> · <a href="{{ url_for('clients.dashboard', editar=client.id) }}">Alterar</a></td></tr>{% else %}<tr><td colspan="7">Nenhum cliente cadastrado.</td></tr>{% endfor %}</tbody>
+    </table></div>
+    <nav aria-label="Paginação de clientes">
+        {% if page > 1 %}<a class="btn btn-outline" href="{{ url_for('clients.dashboard', pagina=page-1) }}">Anterior</a>{% endif %}
+        <span>Página {{ page }} de {{ pages }}</span>
+        {% if page < pages %}<a class="btn btn-outline" href="{{ url_for('clients.dashboard', pagina=page+1) }}">Próxima</a>{% endif %}
+    </nav>
+</section>
+</div>
+{% endblock %}
