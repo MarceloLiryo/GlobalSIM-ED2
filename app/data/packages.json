@@ -1,0 +1,7 @@
+[
+  {"code": 101, "name": "Europa Basic", "data": "5 GB", "validity": "15 dias"},
+  {"code": 102, "name": "Europa Plus", "data": "10 GB", "validity": "30 dias"},
+  {"code": 201, "name": "América Basic", "data": "5 GB", "validity": "15 dias"},
+  {"code": 202, "name": "América Plus", "data": "15 GB", "validity": "30 dias"},
+  {"code": 301, "name": "Global", "data": "20 GB", "validity": "30 dias"}
+]

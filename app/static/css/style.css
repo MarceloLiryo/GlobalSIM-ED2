@@ -569,3 +569,15 @@ body {
     color: var(--text-muted);
     font-size: 0.85rem;
 }
+
+/* Tela de clientes da Etapa 2. */
+.clients-page .card {
+    margin-bottom: 24px;
+    min-width: 0;
+}
+.clients-page .hero-stats {
+    flex-wrap: wrap;
+}
+.clients-page .stat-label {
+    color: var(--text-muted);
+}

@@ -116,6 +116,7 @@
                     {% if itinerary_result.recommended_package %}
                         <div class="package-recommendation">
                             <span class="pkg-label">Pacote Recomendado:</span>
+                            <p><a class="link-action" href="{{ url_for('clients.dashboard', roteiro=itinerary_raw) }}">Associar recomendação a um cliente</a></p>
                             <h4>#{{ itinerary_result.recommended_package.code }} — {{ itinerary_result.recommended_package.name }}</h4>
                             <p>Franquia: <strong>{{ itinerary_result.recommended_package.data }}</strong> · Validade: <strong>{{ itinerary_result.recommended_package.validity }}</strong></p>
                         </div>

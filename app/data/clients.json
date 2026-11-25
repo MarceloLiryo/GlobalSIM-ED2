@@ -1,0 +1,817 @@
+[
+  {
+    "id": 10001,
+    "name": "Cliente Demonstração 10001",
+    "email": "cliente10001@example.com",
+    "esim": "ESIM-10001",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10002,
+    "name": "Cliente Demonstração 10002",
+    "email": "cliente10002@example.com",
+    "esim": "ESIM-10002",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10003,
+    "name": "Cliente Demonstração 10003",
+    "email": "cliente10003@example.com",
+    "esim": "ESIM-10003",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10004,
+    "name": "Cliente Demonstração 10004",
+    "email": "cliente10004@example.com",
+    "esim": "ESIM-10004",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10005,
+    "name": "Cliente Demonstração 10005",
+    "email": "cliente10005@example.com",
+    "esim": "ESIM-10005",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10006,
+    "name": "Cliente Demonstração 10006",
+    "email": "cliente10006@example.com",
+    "esim": "ESIM-10006",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10007,
+    "name": "Cliente Demonstração 10007",
+    "email": "cliente10007@example.com",
+    "esim": "ESIM-10007",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10008,
+    "name": "Cliente Demonstração 10008",
+    "email": "cliente10008@example.com",
+    "esim": "ESIM-10008",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10009,
+    "name": "Cliente Demonstração 10009",
+    "email": "cliente10009@example.com",
+    "esim": "ESIM-10009",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10010,
+    "name": "Cliente Demonstração 10010",
+    "email": "cliente10010@example.com",
+    "esim": "ESIM-10010",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10011,
+    "name": "Cliente Demonstração 10011",
+    "email": "cliente10011@example.com",
+    "esim": "ESIM-10011",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10012,
+    "name": "Cliente Demonstração 10012",
+    "email": "cliente10012@example.com",
+    "esim": "ESIM-10012",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10013,
+    "name": "Cliente Demonstração 10013",
+    "email": "cliente10013@example.com",
+    "esim": "ESIM-10013",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10014,
+    "name": "Cliente Demonstração 10014",
+    "email": "cliente10014@example.com",
+    "esim": "ESIM-10014",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10015,
+    "name": "Cliente Demonstração 10015",
+    "email": "cliente10015@example.com",
+    "esim": "ESIM-10015",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10016,
+    "name": "Cliente Demonstração 10016",
+    "email": "cliente10016@example.com",
+    "esim": "ESIM-10016",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10017,
+    "name": "Cliente Demonstração 10017",
+    "email": "cliente10017@example.com",
+    "esim": "ESIM-10017",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10018,
+    "name": "Cliente Demonstração 10018",
+    "email": "cliente10018@example.com",
+    "esim": "ESIM-10018",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10019,
+    "name": "Cliente Demonstração 10019",
+    "email": "cliente10019@example.com",
+    "esim": "ESIM-10019",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10020,
+    "name": "Cliente Demonstração 10020",
+    "email": "cliente10020@example.com",
+    "esim": "ESIM-10020",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10021,
+    "name": "Cliente Demonstração 10021",
+    "email": "cliente10021@example.com",
+    "esim": "ESIM-10021",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10022,
+    "name": "Cliente Demonstração 10022",
+    "email": "cliente10022@example.com",
+    "esim": "ESIM-10022",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10023,
+    "name": "Cliente Demonstração 10023",
+    "email": "cliente10023@example.com",
+    "esim": "ESIM-10023",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10024,
+    "name": "Cliente Demonstração 10024",
+    "email": "cliente10024@example.com",
+    "esim": "ESIM-10024",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10025,
+    "name": "Cliente Demonstração 10025",
+    "email": "cliente10025@example.com",
+    "esim": "ESIM-10025",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10026,
+    "name": "Cliente Demonstração 10026",
+    "email": "cliente10026@example.com",
+    "esim": "ESIM-10026",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10027,
+    "name": "Cliente Demonstração 10027",
+    "email": "cliente10027@example.com",
+    "esim": "ESIM-10027",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10028,
+    "name": "Cliente Demonstração 10028",
+    "email": "cliente10028@example.com",
+    "esim": "ESIM-10028",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10029,
+    "name": "Cliente Demonstração 10029",
+    "email": "cliente10029@example.com",
+    "esim": "ESIM-10029",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10030,
+    "name": "Cliente Demonstração 10030",
+    "email": "cliente10030@example.com",
+    "esim": "ESIM-10030",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10031,
+    "name": "Cliente Demonstração 10031",
+    "email": "cliente10031@example.com",
+    "esim": "ESIM-10031",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10032,
+    "name": "Cliente Demonstração 10032",
+    "email": "cliente10032@example.com",
+    "esim": "ESIM-10032",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10033,
+    "name": "Cliente Demonstração 10033",
+    "email": "cliente10033@example.com",
+    "esim": "ESIM-10033",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10034,
+    "name": "Cliente Demonstração 10034",
+    "email": "cliente10034@example.com",
+    "esim": "ESIM-10034",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10035,
+    "name": "Cliente Demonstração 10035",
+    "email": "cliente10035@example.com",
+    "esim": "ESIM-10035",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10036,
+    "name": "Cliente Demonstração 10036",
+    "email": "cliente10036@example.com",
+    "esim": "ESIM-10036",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10037,
+    "name": "Cliente Demonstração 10037",
+    "email": "cliente10037@example.com",
+    "esim": "ESIM-10037",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10038,
+    "name": "Cliente Demonstração 10038",
+    "email": "cliente10038@example.com",
+    "esim": "ESIM-10038",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10039,
+    "name": "Cliente Demonstração 10039",
+    "email": "cliente10039@example.com",
+    "esim": "ESIM-10039",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10040,
+    "name": "Cliente Demonstração 10040",
+    "email": "cliente10040@example.com",
+    "esim": "ESIM-10040",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10041,
+    "name": "Cliente Demonstração 10041",
+    "email": "cliente10041@example.com",
+    "esim": "ESIM-10041",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10042,
+    "name": "Cliente Demonstração 10042",
+    "email": "cliente10042@example.com",
+    "esim": "ESIM-10042",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10043,
+    "name": "Cliente Demonstração 10043",
+    "email": "cliente10043@example.com",
+    "esim": "ESIM-10043",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10044,
+    "name": "Cliente Demonstração 10044",
+    "email": "cliente10044@example.com",
+    "esim": "ESIM-10044",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10045,
+    "name": "Cliente Demonstração 10045",
+    "email": "cliente10045@example.com",
+    "esim": "ESIM-10045",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10046,
+    "name": "Cliente Demonstração 10046",
+    "email": "cliente10046@example.com",
+    "esim": "ESIM-10046",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10047,
+    "name": "Cliente Demonstração 10047",
+    "email": "cliente10047@example.com",
+    "esim": "ESIM-10047",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10048,
+    "name": "Cliente Demonstração 10048",
+    "email": "cliente10048@example.com",
+    "esim": "ESIM-10048",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10049,
+    "name": "Cliente Demonstração 10049",
+    "email": "cliente10049@example.com",
+    "esim": "ESIM-10049",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10050,
+    "name": "Cliente Demonstração 10050",
+    "email": "cliente10050@example.com",
+    "esim": "ESIM-10050",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10051,
+    "name": "Cliente Demonstração 10051",
+    "email": "cliente10051@example.com",
+    "esim": "ESIM-10051",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10052,
+    "name": "Cliente Demonstração 10052",
+    "email": "cliente10052@example.com",
+    "esim": "ESIM-10052",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10053,
+    "name": "Cliente Demonstração 10053",
+    "email": "cliente10053@example.com",
+    "esim": "ESIM-10053",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10054,
+    "name": "Cliente Demonstração 10054",
+    "email": "cliente10054@example.com",
+    "esim": "ESIM-10054",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10055,
+    "name": "Cliente Demonstração 10055",
+    "email": "cliente10055@example.com",
+    "esim": "ESIM-10055",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10056,
+    "name": "Cliente Demonstração 10056",
+    "email": "cliente10056@example.com",
+    "esim": "ESIM-10056",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10057,
+    "name": "Cliente Demonstração 10057",
+    "email": "cliente10057@example.com",
+    "esim": "ESIM-10057",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10058,
+    "name": "Cliente Demonstração 10058",
+    "email": "cliente10058@example.com",
+    "esim": "ESIM-10058",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10059,
+    "name": "Cliente Demonstração 10059",
+    "email": "cliente10059@example.com",
+    "esim": "ESIM-10059",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10060,
+    "name": "Cliente Demonstração 10060",
+    "email": "cliente10060@example.com",
+    "esim": "ESIM-10060",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10061,
+    "name": "Cliente Demonstração 10061",
+    "email": "cliente10061@example.com",
+    "esim": "ESIM-10061",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10062,
+    "name": "Cliente Demonstração 10062",
+    "email": "cliente10062@example.com",
+    "esim": "ESIM-10062",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10063,
+    "name": "Cliente Demonstração 10063",
+    "email": "cliente10063@example.com",
+    "esim": "ESIM-10063",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10064,
+    "name": "Cliente Demonstração 10064",
+    "email": "cliente10064@example.com",
+    "esim": "ESIM-10064",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10065,
+    "name": "Cliente Demonstração 10065",
+    "email": "cliente10065@example.com",
+    "esim": "ESIM-10065",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10066,
+    "name": "Cliente Demonstração 10066",
+    "email": "cliente10066@example.com",
+    "esim": "ESIM-10066",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10067,
+    "name": "Cliente Demonstração 10067",
+    "email": "cliente10067@example.com",
+    "esim": "ESIM-10067",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10068,
+    "name": "Cliente Demonstração 10068",
+    "email": "cliente10068@example.com",
+    "esim": "ESIM-10068",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10069,
+    "name": "Cliente Demonstração 10069",
+    "email": "cliente10069@example.com",
+    "esim": "ESIM-10069",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10070,
+    "name": "Cliente Demonstração 10070",
+    "email": "cliente10070@example.com",
+    "esim": "ESIM-10070",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10071,
+    "name": "Cliente Demonstração 10071",
+    "email": "cliente10071@example.com",
+    "esim": "ESIM-10071",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10072,
+    "name": "Cliente Demonstração 10072",
+    "email": "cliente10072@example.com",
+    "esim": "ESIM-10072",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10073,
+    "name": "Cliente Demonstração 10073",
+    "email": "cliente10073@example.com",
+    "esim": "ESIM-10073",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10074,
+    "name": "Cliente Demonstração 10074",
+    "email": "cliente10074@example.com",
+    "esim": "ESIM-10074",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10075,
+    "name": "Cliente Demonstração 10075",
+    "email": "cliente10075@example.com",
+    "esim": "ESIM-10075",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10076,
+    "name": "Cliente Demonstração 10076",
+    "email": "cliente10076@example.com",
+    "esim": "ESIM-10076",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10077,
+    "name": "Cliente Demonstração 10077",
+    "email": "cliente10077@example.com",
+    "esim": "ESIM-10077",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10078,
+    "name": "Cliente Demonstração 10078",
+    "email": "cliente10078@example.com",
+    "esim": "ESIM-10078",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10079,
+    "name": "Cliente Demonstração 10079",
+    "email": "cliente10079@example.com",
+    "esim": "ESIM-10079",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10080,
+    "name": "Cliente Demonstração 10080",
+    "email": "cliente10080@example.com",
+    "esim": "ESIM-10080",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10081,
+    "name": "Cliente Demonstração 10081",
+    "email": "cliente10081@example.com",
+    "esim": "ESIM-10081",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10082,
+    "name": "Cliente Demonstração 10082",
+    "email": "cliente10082@example.com",
+    "esim": "ESIM-10082",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10083,
+    "name": "Cliente Demonstração 10083",
+    "email": "cliente10083@example.com",
+    "esim": "ESIM-10083",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10084,
+    "name": "Cliente Demonstração 10084",
+    "email": "cliente10084@example.com",
+    "esim": "ESIM-10084",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10085,
+    "name": "Cliente Demonstração 10085",
+    "email": "cliente10085@example.com",
+    "esim": "ESIM-10085",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10086,
+    "name": "Cliente Demonstração 10086",
+    "email": "cliente10086@example.com",
+    "esim": "ESIM-10086",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10087,
+    "name": "Cliente Demonstração 10087",
+    "email": "cliente10087@example.com",
+    "esim": "ESIM-10087",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10088,
+    "name": "Cliente Demonstração 10088",
+    "email": "cliente10088@example.com",
+    "esim": "ESIM-10088",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10089,
+    "name": "Cliente Demonstração 10089",
+    "email": "cliente10089@example.com",
+    "esim": "ESIM-10089",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10090,
+    "name": "Cliente Demonstração 10090",
+    "email": "cliente10090@example.com",
+    "esim": "ESIM-10090",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10091,
+    "name": "Cliente Demonstração 10091",
+    "email": "cliente10091@example.com",
+    "esim": "ESIM-10091",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10092,
+    "name": "Cliente Demonstração 10092",
+    "email": "cliente10092@example.com",
+    "esim": "ESIM-10092",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10093,
+    "name": "Cliente Demonstração 10093",
+    "email": "cliente10093@example.com",
+    "esim": "ESIM-10093",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10094,
+    "name": "Cliente Demonstração 10094",
+    "email": "cliente10094@example.com",
+    "esim": "ESIM-10094",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10095,
+    "name": "Cliente Demonstração 10095",
+    "email": "cliente10095@example.com",
+    "esim": "ESIM-10095",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10096,
+    "name": "Cliente Demonstração 10096",
+    "email": "cliente10096@example.com",
+    "esim": "ESIM-10096",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10097,
+    "name": "Cliente Demonstração 10097",
+    "email": "cliente10097@example.com",
+    "esim": "ESIM-10097",
+    "pacote": 102,
+    "status": "ativo"
+  },
+  {
+    "id": 10098,
+    "name": "Cliente Demonstração 10098",
+    "email": "cliente10098@example.com",
+    "esim": "ESIM-10098",
+    "pacote": 201,
+    "status": "ativo"
+  },
+  {
+    "id": 10099,
+    "name": "Cliente Demonstração 10099",
+    "email": "cliente10099@example.com",
+    "esim": "ESIM-10099",
+    "pacote": 202,
+    "status": "ativo"
+  },
+  {
+    "id": 10100,
+    "name": "Cliente Demonstração 10100",
+    "email": "cliente10100@example.com",
+    "esim": "ESIM-10100",
+    "pacote": 301,
+    "status": "ativo"
+  },
+  {
+    "id": 10101,
+    "name": "Cliente Demonstração 10101",
+    "email": "cliente10101@example.com",
+    "esim": "ESIM-10101",
+    "pacote": 101,
+    "status": "ativo"
+  },
+  {
+    "id": 10102,
+    "name": "Cliente Demonstração 10102",
+    "email": "cliente10102@example.com",
+    "esim": "ESIM-10102",
+    "pacote": 102,
+    "status": "ativo"
+  }
