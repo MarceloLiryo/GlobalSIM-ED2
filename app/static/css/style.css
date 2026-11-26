@@ -22,7 +22,9 @@
 body {
     margin: 0;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    background-color: var(--bg-page);
+    background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 45%, #e0f2fe 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
     color: var(--text-main);
     line-height: 1.5;
 }
@@ -813,4 +815,11 @@ body {
     .trust-bar {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+.brand-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
 }
