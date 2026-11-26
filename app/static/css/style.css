@@ -748,45 +748,231 @@ body {
 .landing-packages {
     margin-bottom: 20px;
 }
+.how-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.stepper-controls {
+    display: flex;
+    gap: 6px;
+}
+.stepper-arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    color: var(--text-main);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.stepper-arrow:hover {
+    background: #e0f2fe;
+    border-color: var(--primary);
+    color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+.stepper-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+.stepper-dot {
+    border: 1px solid var(--border);
+    background: #f8fafc;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.stepper-dot.is-active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+.stepper-stage {
+    min-height: 112px;
+}
+.step-slide.is-active {
+    animation: stepFadeSlide 0.35s ease;
+}
+.step-slide h3 {
+    margin: 8px 0 6px 0;
+    font-size: 1.05rem;
+}
+.step-slide p {
+    margin: 0;
+}
+@keyframes stepFadeSlide {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.stepper-progress-track {
+    margin-top: 14px;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.stepper-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary) 0%, #38bdf8 100%);
+}
+.stepper-progress-fill.is-running {
+    animation: stepProgress 4s linear forwards;
+}
+@keyframes stepProgress {
+    from { width: 0%; }
+    to { width: 100%; }
+}
 .packages-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
 }
 .pkg-card {
     position: relative;
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
+    border-radius: 12px;
+    padding: 16px;
     background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
-.pkg-featured {
+.pkg-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.2);
+}
+.pkg-basic:hover {
+    border-color: #94a3b8;
+    background: #ffffff;
+}
+.pkg-europa-plus {
+    background: linear-gradient(160deg, #eff6ff 0%, #dbeafe 100%);
+    border-color: #38bdf8;
+    box-shadow: 0 6px 16px -8px rgba(2, 132, 199, 0.35);
+}
+.pkg-europa-plus:hover {
     border-color: var(--primary);
-    background: #f0f9ff;
+    box-shadow: 0 14px 26px -10px rgba(2, 132, 199, 0.45);
+}
+.pkg-america-plus {
+    background: linear-gradient(160deg, #ecfdf5 0%, #d1fae5 100%);
+    border-color: #34d399;
+    box-shadow: 0 6px 16px -8px rgba(5, 150, 105, 0.28);
+}
+.pkg-america-plus:hover {
+    border-color: #059669;
+    box-shadow: 0 14px 26px -10px rgba(5, 150, 105, 0.38);
+}
+.pkg-global {
+    background: linear-gradient(145deg, #0f172a 0%, #1e3a8a 100%);
+    border-color: #38bdf8;
+    color: #fff;
+    box-shadow: 0 10px 24px -10px rgba(15, 23, 42, 0.55);
+}
+.pkg-global:hover {
+    box-shadow: 0 16px 30px -10px rgba(30, 58, 138, 0.65);
+}
+.pkg-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    min-height: 22px;
+    margin-bottom: 8px;
+}
+.pkg-region {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+.pkg-global .pkg-region,
+.pkg-global .pkg-code,
+.pkg-global .pkg-validity {
+    color: #cbd5e1;
+}
+.pkg-code {
+    font-size: 0.78rem;
+    color: var(--text-muted);
 }
 .pkg-card h3 {
     margin: 4px 0 6px 0;
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 .pkg-data {
-    font-size: 1.25rem;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--primary-hover);
+    margin: 0 0 2px 0;
+}
+.pkg-america-plus .pkg-data {
+    color: #047857;
+}
+.pkg-global .pkg-data {
+    color: #7dd3fc;
+}
+.pkg-validity {
+    margin: 0 0 12px 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.pkg-cta {
+    margin-top: auto;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--primary-hover);
-    margin: 0 0 4px 0;
+    text-decoration: none;
+}
+.pkg-america-plus .pkg-cta {
+    color: #047857;
+}
+.pkg-global .pkg-cta {
+    color: #bae6fd;
+}
+.pkg-cta:hover {
+    text-decoration: underline;
 }
 .pkg-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 999px;
     background: var(--primary);
     color: #fff;
 }
-.pkg-badge-dark {
-    background: var(--bg-dark);
+.pkg-badge-emerald {
+    background: #059669;
+}
+.pkg-badge-gold {
+    background: #f59e0b;
+    color: #0f172a;
+}
+@media (prefers-reduced-motion: reduce) {
+    .step-slide.is-active,
+    .stepper-progress-fill.is-running {
+        animation: none;
+    }
+    .pkg-card {
+        transition: none;
+    }
 }
 .faq-list {
     display: flex;

@@ -69,39 +69,70 @@
         </ul>
     </section>
 
-    <section class="card">
-        <h2>Como funciona</h2>
-        <ol class="steps-list">
-            <li>
-                <span class="step-num">01</span>
-                <div><strong>Consulte seu roteiro</strong><br><small class="text-muted">Verifique a cobertura dos destinos e o pacote ideal.</small></div>
-            </li>
-            <li>
-                <span class="step-num">02</span>
-                <div><strong>Ative seu eSIM</strong><br><small class="text-muted">Receba o código digital sem precisar trocar de chip físico.</small></div>
-            </li>
-            <li>
-                <span class="step-num">03</span>
-                <div><strong>Conecte-se ao pousar</strong><br><small class="text-muted">Acesso automático na rede 5G parceira ao chegar.</small></div>
-            </li>
-        </ol>
+    <section class="card how-card" data-how-stepper>
+        <div class="card-title-row">
+            <h2>Como funciona</h2>
+            <div class="stepper-controls" role="group" aria-label="Navegar etapas">
+                <button type="button" class="stepper-arrow" data-step-prev aria-label="Etapa anterior">&#8592;</button>
+                <button type="button" class="stepper-arrow" data-step-next aria-label="Próxima etapa">&#8594;</button>
+            </div>
+        </div>
+
+        <div class="stepper-tabs" role="tablist" aria-label="Etapas de uso">
+            <button type="button" class="stepper-dot is-active" data-step-dot role="tab" aria-selected="true">01 · Roteiro</button>
+            <button type="button" class="stepper-dot" data-step-dot role="tab" aria-selected="false">02 · eSIM</button>
+            <button type="button" class="stepper-dot" data-step-dot role="tab" aria-selected="false">03 · Conexão</button>
+        </div>
+
+        <div class="stepper-stage" aria-live="polite">
+            <div class="step-slide is-active" data-step-slide>
+                <span class="step-num">Etapa 01</span>
+                <h3>Consulte seu roteiro</h3>
+                <p class="text-muted">Informe os códigos dos países da viagem na Tabela Hash e descubra na hora a cobertura e o pacote ideal.</p>
+            </div>
+            <div class="step-slide" data-step-slide hidden>
+                <span class="step-num">Etapa 02</span>
+                <h3>Ative seu eSIM digital</h3>
+                <p class="text-muted">Receba seu código <code>ESIM-XXXXX</code> sem trocar de chip físico e associe o plano escolhido ao seu cadastro.</p>
+            </div>
+            <div class="step-slide" data-step-slide hidden>
+                <span class="step-num">Etapa 03</span>
+                <h3>Conecte-se em 5G ao pousar</h3>
+                <p class="text-muted">Assim que desembarcar, seu aparelho se conecta automaticamente à operadora parceira local sem tarifas surpresa.</p>
+            </div>
+        </div>
+
+        <div class="stepper-progress-track" aria-hidden="true">
+            <div class="stepper-progress-fill" data-step-progress></div>
+        </div>
     </section>
 </div>
 
 <section class="card landing-packages">
     <div class="card-title-row">
-        <h2>Nossos Pacotes</h2>
-        <a href="{{ url_for('home.coverage') }}" class="link-action">Simular roteiro de viagem</a>
+        <div>
+            <h2>Nossos Pacotes</h2>
+            <p class="text-muted" style="margin:0;">Escolha entre planos regionais ou cobertura global sem tarifas de roaming.</p>
+        </div>
+        <a href="{{ url_for('home.coverage') }}" class="btn btn-outline">Simular roteiro de viagem</a>
     </div>
     <div class="packages-grid">
         {% for pkg in packages %}
-        <article class="pkg-card {{ 'pkg-featured' if pkg.code in [102, 301] else '' }}">
-            {% if pkg.code == 102 %}<span class="pkg-badge">Mais popular</span>
-            {% elif pkg.code == 301 %}<span class="pkg-badge pkg-badge-dark">Cobertura total</span>{% endif %}
-            <small class="text-muted">Código #{{ pkg.code }}</small>
+        {% set pkg_variant = 'pkg-global' if pkg.code == 301 else ('pkg-europa-plus' if pkg.code == 102 else ('pkg-america-plus' if pkg.code == 202 else 'pkg-basic')) %}
+        {% set pkg_region = 'Mundial' if pkg.code == 301 else ('Europa' if pkg.code in [101, 102] else 'América') %}
+        {% set pkg_sample = 'BR,PT,JP' if pkg.code == 301 else ('PT,ES,FR,IT' if pkg.code == 102 else ('PT,IT' if pkg.code == 101 else ('BR,US,CA' if pkg.code == 202 else 'BR,US'))) %}
+        <article class="pkg-card {{ pkg_variant }}">
+            <div class="pkg-top">
+                <span class="pkg-region">{{ pkg_region }}</span>
+                {% if pkg.code == 102 %}<span class="pkg-badge">Mais popular</span>
+                {% elif pkg.code == 202 %}<span class="pkg-badge pkg-badge-emerald">Melhor custo-benefício</span>
+                {% elif pkg.code == 301 %}<span class="pkg-badge pkg-badge-gold">Cobertura total</span>{% endif %}
+            </div>
+            <small class="pkg-code">Código #{{ pkg.code }}</small>
             <h3>{{ pkg.name }}</h3>
             <p class="pkg-data">{{ pkg.data }}</p>
-            <p class="text-muted">Validade: {{ pkg.validity }}</p>
+            <p class="pkg-validity">Validade: {{ pkg.validity }}</p>
+            <a href="{{ url_for('home.coverage', roteiro=pkg_sample) }}" class="pkg-cta">Testar roteiro &#8594;</a>
         </article>
         {% endfor %}
     </div>
@@ -124,4 +155,8 @@
         </details>
     </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/home_interactive.js') }}"></script>
 {% endblock %}
