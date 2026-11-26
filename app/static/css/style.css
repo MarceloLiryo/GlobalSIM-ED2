@@ -333,6 +333,11 @@ body {
     border-color: #fecaca;
 }
 
+.result-warning {
+    background: var(--warning-bg);
+    border-color: var(--warning-border);
+}
+
 .result-info {
     background: #f8fafc;
 }
@@ -369,6 +374,11 @@ body {
 
 .status-fail {
     background: #dc2626;
+    color: #fff;
+}
+
+.status-warning {
+    background: #d97706;
     color: #fff;
 }
 
@@ -580,4 +590,12 @@ body {
 }
 .clients-page .stat-label {
     color: var(--text-muted);
+}
+.compatibility-box {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+.compatibility-box p {
+    margin: 0 0 8px 0;
 }

@@ -204,3 +204,34 @@ def test_index_positions_stay_stable_after_create_update_and_reload(service):
     assert reloaded.get_by_id(50).name == "Nome mais longo para testar a posição lógica"
     assert reloaded.get_by_id(10).esim == "ESIM-10"
     assert reloaded.tree.search(50) == 0
+
+
+def test_package_compatibility_and_status_colors(web):
+    app, browser = web
+    browser.post("/clientes/criar", data={**record(6767), "status": "inativo", "pacote": 101})
+    browser.post("/clientes/criar", data={**record(6768), "status": "suspenso", "pacote": 301})
+    browser.post("/clientes/criar", data={**record(6769), "status": "ativo", "pacote": 301})
+
+    res_inativo_br = browser.get("/clientes/?id=6767&destino=BR")
+    assert res_inativo_br.status_code == 200
+    assert "result-warning" in res_inativo_br.text
+    assert "result-error" in res_inativo_br.text
+    assert "não cobre Brasil (América)" in res_inativo_br.text
+    assert "status inativo" in res_inativo_br.text
+
+    # Cliente inativo com Europa Basic consultando Itália (Europa) -> pacote cobre, alerta amarelo.
+    res_inativo_it = browser.get("/clientes/?id=6767&destino=IT")
+    assert "result-error" not in res_inativo_it.text
+    assert res_inativo_it.text.count("result-warning") >= 2
+
+    # Cliente suspenso com pacote Global -> card vermelho (result-error).
+    res_suspenso = browser.get("/clientes/?id=6768&destino=BR")
+    assert "result-error" in res_suspenso.text
+    assert "status suspenso" in res_suspenso.text
+
+    # Cliente ativo com pacote Global -> ambos verdes (result-success) e uso liberado.
+    res_ativo = browser.get("/clientes/?id=6769&destino=BR")
+    assert "USO LIBERADO" in res_ativo.text
+    assert "result-warning" not in res_ativo.text
+    assert "result-error" not in res_ativo.text
+

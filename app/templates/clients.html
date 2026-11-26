@@ -29,8 +29,13 @@
         <button class="btn btn-primary" type="submit">Consultar</button>
     </form>
     {% if found %}
-    <div class="result-box result-success">
-        <h3>{{ found.name }} · #{{ found.id }}</h3>
+    {% set client_box_class = 'result-success' if found.status == 'ativo' else ('result-warning' if found.status == 'inativo' else 'result-error') %}
+    {% set client_pill_class = 'status-ok' if found.status == 'ativo' else ('status-warning' if found.status == 'inativo' else 'status-fail') %}
+    <div class="result-box {{ client_box_class }}">
+        <div class="result-header">
+            <h3>{{ found.name }} · #{{ found.id }}</h3>
+            <span class="status-pill {{ client_pill_class }}">{{ found.status | upper }}</span>
+        </div>
         <p>{{ found.email }}<br>eSIM: {{ found.esim }}<br>Status: {{ found.status }}</p>
         {% for p in packages if p.code == found.pacote %}<p>Pacote: {{ p.name }} (#{{ p.code }}) · {{ p.data }} · {{ p.validity }}</p>{% endfor %}
         <a href="{{ url_for('clients.dashboard', editar=found.id) }}" class="btn btn-outline">Alterar cliente</a>
@@ -38,10 +43,22 @@
     </div>
     {% endif %}
     {% if integrated %}
-    <div class="result-box {{ 'result-success' if integrated.country else 'result-error' }}">
+    {% set integrated_box_class = 'result-success' if integrated.compatibility_status == 'ok' else ('result-warning' if integrated.compatibility_status == 'warning' else 'result-error') %}
+    <div class="result-box {{ integrated_box_class }}">
         {% if integrated.country %}
-        <h3>Cobertura disponível: {{ integrated.country.country }}</h3>
+        <div class="result-header">
+            <h3>Cobertura disponível: {{ integrated.country.country }}</h3>
+            <span class="status-pill {{ 'status-ok' if integrated.can_connect else ('status-warning' if integrated.compatibility_status == 'warning' else 'status-fail') }}">
+                {{ 'USO LIBERADO' if integrated.can_connect else ('ATENÇÃO' if integrated.compatibility_status == 'warning' else 'INCOMPATÍVEL') }}
+            </span>
+        </div>
         <p>Região: {{ integrated.country.region }}<br>Operadora: {{ integrated.country.provider }}<br>Tecnologia: {{ integrated.country.tech }}</p>
+        <div class="compatibility-box">
+            <p class="{{ 'text-danger' if integrated.compatibility_status == 'error' else '' }}"><strong>Compatibilidade do cliente:</strong> {{ integrated.compatibility_message }}</p>
+            {% if not integrated.package_covers_destination %}
+            <a href="{{ url_for('clients.dashboard', id=found.id, roteiro=destination) }}" class="btn btn-outline">Recomendar pacote para {{ destination }}</a>
+            {% endif %}
+        </div>
         {% else %}<h3>Sem cobertura para {{ destination }}</h3>{% endif %}
         <p class="text-muted">Comparações: Árvore B {{ integrated.tree_comparisons }} · Tabela Hash {{ integrated.hash_comparisons }}</p>
     </div>

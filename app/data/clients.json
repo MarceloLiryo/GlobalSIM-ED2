@@ -1,11 +1,11 @@
 [
   {
     "id": 10001,
-    "name": "Cliente Demonstração 10001",
-    "email": "cliente10001@example.com",
-    "esim": "ESIM-10001",
-    "pacote": 101,
-    "status": "ativo"
+    "name": "Marcelo Livros",
+    "email": "marcelolivros@gmail.com",
+    "esim": "ESIM true gm",
+    "pacote": 301,
+    "status": "suspenso"
   },
   {
     "id": 10002,
@@ -7998,5 +7998,13 @@
     "esim": "ESIM-11000",
     "pacote": 301,
     "status": "ativo"
+  },
+  {
+    "id": 6767,
+    "name": "Janderson Blanski",
+    "email": "jandersonblanski@truemail.com",
+    "esim": "ESIMbahiart",
+    "pacote": 101,
+    "status": "inativo"
   }
 ]

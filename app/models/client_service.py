@@ -1,7 +1,7 @@
 """Regras da Etapa 2: clientes indexados exclusivamente pela Árvore B."""
 from app.models.b_tree import BTree
 from app.models.client import Client
-from app.models.packages import find_package, load_packages
+from app.models.packages import find_package, load_packages, package_covers_region
 from app.repository.client_repository import ClientRepository
 
 
@@ -81,13 +81,56 @@ class ClientModel:
             raise KeyError("Cliente não encontrado.")
         if not destination.strip():
             raise ValueError("Informe o código do país de destino.")
+
         country = countries.get_by_code(destination)
+        package = find_package(self.packages, client.pacote)
+        client_active = client.status == "ativo"
+        package_covers = (
+            package_covers_region(package, country["region"])
+            if (country and package)
+            else None
+        )
+
+        reasons = []
+        if country is None:
+            reasons.append(f"O código {destination.strip().upper()} não possui cobertura na Tabela Hash.")
+        else:
+            if not package_covers:
+                pkg_label = f"{package['name']} (#{package['code']})" if package else f"#{client.pacote}"
+                reasons.append(
+                    f"O pacote {pkg_label} não cobre {country['country']} ({country['region']})."
+                )
+            if client.status == "suspenso":
+                reasons.append("O cliente está com status suspenso e não pode usar a conexão.")
+            elif client.status == "inativo":
+                reasons.append("O cliente está com status inativo; é necessário ativar a linha antes do uso.")
+
+        can_connect = bool(country and package_covers and client_active)
+        if can_connect:
+            compatibility_status = "ok"
+            compatibility_message = (
+                f"Compatível: o pacote {package['name']} cobre {country['country']} "
+                f"({country['region']}) e o eSIM está ativo."
+            )
+        elif country is not None and package_covers and client.status == "inativo":
+            compatibility_status = "warning"
+            compatibility_message = " ".join(reasons)
+        else:
+            compatibility_status = "error"
+            compatibility_message = " ".join(reasons)
+
         return {
             "client": client,
-            "package": find_package(self.packages, client.pacote),
+            "package": package,
             "country": country,
             "tree_comparisons": comparisons,
             "hash_comparisons": countries.get_instrumentation()["last_search_comparisons"],
+            "package_covers_destination": package_covers,
+            "client_active": client_active,
+            "can_connect": can_connect,
+            "compatibility_status": compatibility_status,
+            "compatibility_message": compatibility_message,
+            "compatibility_reasons": reasons,
         }
 
     def assign_recommended_package(self, client_id, itinerary, countries):
