@@ -1,188 +1,185 @@
 {% extends "base.html" %}
 
-{% block title %}GlobalSIM - Cobertura Internacional por eSIM{% endblock %}
+{% block title %}GlobalSIM - Internet Internacional por eSIM{% endblock %}
 
 {% block content %}
-<section class="hero-banner">
-    <div>
-        <h1>Conectividade Internacional por eSIM</h1>
-        <p>Consulte em tempo real os países atendidos pela GlobalSIM utilizando busca direta em <strong>Tabela Hash</strong>.</p>
-    </div>
-    <div class="hero-stats">
-        <div class="stat-box">
-            <span class="stat-value">{{ metrics.size }}</span>
-            <span class="stat-label">Países Ativos</span>
+<section class="landing-hero">
+    <div class="landing-hero-copy">
+        <span class="landing-eyebrow">Conectividade Global 5G</span>
+        <h1>Internet internacional sem fronteiras, direto no seu eSIM.</h1>
+        <p>
+            A <strong>GlobalSIM</strong> conecta viajantes às melhores operadoras locais em minutos —
+            sem chip físico, sem filas no aeroporto e sem cobranças surpresa de roaming.
+        </p>
+        <div class="landing-actions">
+            <a href="{{ url_for('home.coverage') }}" class="btn btn-primary">Consultar Cobertura</a>
+            <a href="{{ url_for('clients.dashboard') }}" class="btn btn-outline btn-light-outline">Clientes & eSIMs</a>
         </div>
-        <div class="stat-box">
-            <span class="stat-value">{{ metrics.load_factor }}</span>
-            <span class="stat-label">Fator de Carga (α)</span>
+        <div class="landing-badges">
+            <span>Ativação em 2 min</span>
+            <span>100% digital</span>
+            <span>Operadoras Tier-1</span>
+        </div>
+    </div>
+
+    <aside class="esim-showcase" aria-label="Prévia decorativa de eSIM ativo">
+        <div class="esim-showcase-top">
+            <span class="esim-chip-tag">eSIM Digital</span>
+            <span class="status-pill status-ok">5G ATIVO</span>
+        </div>
+        <div class="esim-code">ESIM-83921</div>
+        <p class="esim-plan">Plano Global · 20 GB · 30 dias</p>
+        <div class="esim-meta-row">
+            <div><small>Destinos</small><strong>BR · PT · IT · JP</strong></div>
+            <div><small>Sinal</small><strong>TIM / Orange / NTT</strong></div>
+        </div>
+    </aside>
+</section>
+
+<section class="trust-bar" aria-label="Indicadores da GlobalSIM">
+    <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </span>
+        <strong>{{ countries_count }}</strong>
+        <span>Países com cobertura</span>
+    </div>
+    <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/><path d="M9 7h6v5H9z"/></svg>
+        </span>
+        <strong>{{ clients_count }}</strong>
+        <span>Clientes e eSIMs ativos</span>
+    </div>
+    <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+        </span>
+        <strong>{{ packages | length }}</strong>
+        <span>Planos regionais e global</span>
+    </div>
+    <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+        <strong>24/7</strong>
+        <span>Suporte ao viajante</span>
+    </div>
+</section>
+
+<section class="card about-featured">
+    <span class="about-eyebrow">Quem Somos</span>
+    <h2>Sobre a GlobalSIM</h2>
+    <p class="about-lead">
+        A <strong>GlobalSIM</strong> nasceu para eliminar o estresse de buscar Wi-Fi público e as faturas imprevisíveis de roaming internacional.
+        Oferecemos acesso móvel 5G instantâneo via <strong>eSIM digital</strong> para viajantes a lazer ou trabalho, conectando você diretamente às principais operadoras locais do destino.
+    </p>
+    <p class="about-sub">
+        Do planejamento do roteiro à ativação da linha, unimos transparência nas franquias, cobertura multi-regional e gestão em tempo real — para você desembarcar e sair navegando.
+    </p>
+    <div class="about-pillars">
+        <div class="about-pillar">
+            <strong>Sem roaming surpresa</strong>
+            <span>Franquia fechada de 5 GB a 20 GB com validade clara de 15 ou 30 dias.</span>
+        </div>
+        <div class="about-pillar">
+            <strong>Roteiro inteligente</strong>
+            <span>Recomendação automática do pacote ideal a partir dos países da sua viagem.</span>
+        </div>
+        <div class="about-pillar">
+            <strong>Parcerias Tier-1 em 5G</strong>
+            <span>Conexão direta via TIM, Orange, Movistar, T-Mobile, Vivo e NTT Docomo.</span>
         </div>
     </div>
 </section>
 
-<div class="grid-2col">
-    <!-- Consulta de Cobertura por Código (Requisito Obrigatório Etapa 1) -->
-    <section class="card">
-        <h2>Verificar Cobertura por País</h2>
-        <p class="text-muted">Informe o código ISO de 2 letras (ex: BR, IT, PT, US, JP) para buscar na Tabela Hash.</p>
-
-        <form action="{{ url_for('home.index') }}" method="GET" class="inline-form">
-            <input
-                type="text"
-                name="codigo"
-                value="{{ query_code }}"
-                placeholder="Ex: IT"
-                maxlength="3"
-                class="input-field input-code"
-                required
-            >
-            <button type="submit" class="btn btn-primary">Verificar cobertura</button>
-            {% if search_performed %}
-                <a href="{{ url_for('home.index') }}" class="btn btn-outline">Limpar</a>
-            {% endif %}
-        </form>
-
-        {% if search_performed %}
-            {% if coverage_result %}
-                <div class="result-box result-success">
-                    <div class="result-header">
-                        <span class="status-pill status-ok">COBERTURA DISPONÍVEL</span>
-                        <span class="metric-tag">Comparações na Hash: {{ search_comparisons }}</span>
-                    </div>
-                    <ul class="result-list">
-                        <li><strong>Código:</strong> {{ coverage_result.code }}</li>
-                        <li><strong>País:</strong> {{ coverage_result.country }}</li>
-                        <li><strong>Região:</strong> {{ coverage_result.region }}</li>
-                        <li><strong>Operadora:</strong> {{ coverage_result.provider }}</li>
-                        <li><strong>Tecnologia:</strong> <span class="tech-badge">{{ coverage_result.tech }}</span></li>
-                    </ul>
-                </div>
-            {% else %}
-                <div class="result-box result-error">
-                    <div class="result-header">
-                        <span class="status-pill status-fail">SEM COBERTURA</span>
-                        <span class="metric-tag">Comparações na Hash: {{ search_comparisons }}</span>
-                    </div>
-                    <p>O código <strong>"{{ query_code }}"</strong> não foi encontrado na Tabela Hash da GlobalSIM.</p>
-                </div>
-            {% endif %}
-        {% endif %}
-    </section>
-
-    <!-- Diferencial da Equipe: Recomendação de Pacote por Roteiro -->
-    <section class="card">
+<section class="card how-card landing-how" data-how-stepper>
         <div class="card-title-row">
-            <h2>Planejador de Roteiro & Pacote</h2>
-            <span class="badge-diff">Diferencial</span>
+            <h2>Como funciona</h2>
+            <div class="stepper-controls" role="group" aria-label="Navegar etapas">
+                <button type="button" class="stepper-arrow" data-step-prev aria-label="Etapa anterior">&#8592;</button>
+                <button type="button" class="stepper-arrow" data-step-next aria-label="Próxima etapa">&#8594;</button>
+            </div>
         </div>
-        <p class="text-muted">Digite os códigos dos países da sua viagem separados por vírgula para verificar cobertura múltipla e o pacote ideal.</p>
 
-        <form action="{{ url_for('home.index') }}" method="GET" class="inline-form">
-            <input
-                type="text"
-                name="roteiro"
-                value="{{ itinerary_raw }}"
-                placeholder="Ex: PT, ES, FR, IT"
-                class="input-field"
-                required
-            >
-            <button type="submit" class="btn btn-primary">Recomendar Pacote</button>
-        </form>
+        <div class="stepper-tabs" role="tablist" aria-label="Etapas de uso">
+            <button type="button" class="stepper-dot is-active" data-step-dot role="tab" aria-selected="true">01 · Roteiro</button>
+            <button type="button" class="stepper-dot" data-step-dot role="tab" aria-selected="false">02 · eSIM</button>
+            <button type="button" class="stepper-dot" data-step-dot role="tab" aria-selected="false">03 · Conexão</button>
+        </div>
 
-        {% if itinerary_result %}
-            {% if not itinerary_result.valid %}
-                <div class="result-box result-error">
-                    <p>{{ itinerary_result.error }}</p>
-                </div>
-            {% else %}
-                <div class="result-box result-info">
-                    <div class="result-header">
-                        <strong>Análise do Roteiro</strong>
-                        <span class="metric-tag">Total de comparações na Hash: {{ itinerary_result.total_hash_comparisons }}</span>
-                    </div>
+        <div class="stepper-stage" aria-live="polite">
+            <div class="step-slide is-active" data-step-slide>
+                <span class="step-num">Etapa 01</span>
+                <h3>Consulte seu roteiro</h3>
+                <p class="text-muted">Informe os códigos dos países da viagem na Tabela Hash e descubra na hora a cobertura e o pacote ideal.</p>
+            </div>
+            <div class="step-slide" data-step-slide hidden>
+                <span class="step-num">Etapa 02</span>
+                <h3>Ative seu eSIM digital</h3>
+                <p class="text-muted">Receba seu código <code>ESIM-XXXXX</code> sem trocar de chip físico e associe o plano escolhido ao seu cadastro.</p>
+            </div>
+            <div class="step-slide" data-step-slide hidden>
+                <span class="step-num">Etapa 03</span>
+                <h3>Conecte-se em 5G ao pousar</h3>
+                <p class="text-muted">Assim que desembarcar, seu aparelho se conecta automaticamente à operadora parceira local sem tarifas surpresa.</p>
+            </div>
+        </div>
 
-                    {% if itinerary_result.covered %}
-                        <p><strong>Destinos cobertos ({{ itinerary_result.covered | length }}):</strong>
-                            {% for item in itinerary_result.covered %}
-                                <span class="country-chip">{{ item.code }} · {{ item.country }} ({{ item.region }})</span>
-                            {% endfor %}
-                        </p>
-                    {% endif %}
-
-                    {% if itinerary_result.uncovered %}
-                        <p class="text-danger"><strong>Sem cobertura:</strong> {{ itinerary_result.uncovered | join(', ') }}</p>
-                    {% endif %}
-
-                    {% if itinerary_result.recommended_package %}
-                        <div class="package-recommendation">
-                            <span class="pkg-label">Pacote Recomendado:</span>
-                            <p><a class="link-action" href="{{ url_for('clients.dashboard', roteiro=itinerary_raw) }}">Associar recomendação a um cliente</a></p>
-                            <h4>#{{ itinerary_result.recommended_package.code }} — {{ itinerary_result.recommended_package.name }}</h4>
-                            <p>Franquia: <strong>{{ itinerary_result.recommended_package.data }}</strong> · Validade: <strong>{{ itinerary_result.recommended_package.validity }}</strong></p>
-                        </div>
-                    {% else %}
-                        <p class="text-danger">Nenhum país do roteiro possui cobertura ativa para recomendar pacote.</p>
-                    {% endif %}
-                </div>
-            {% endif %}
-        {% endif %}
+        <div class="stepper-progress-track" aria-hidden="true">
+            <div class="stepper-progress-fill" data-step-progress></div>
+        </div>
     </section>
-</div>
 
-<!-- Preview do Mapa-Múndi (Leaflet.js) -->
-<section class="card">
+<section class="card landing-packages">
     <div class="card-title-row">
-        <h2>Preview do Mapa-Múndi de Cobertura</h2>
-        <span class="text-muted">Clique em um marcador para inspecionar o país</span>
+        <div>
+            <h2>Nossos Pacotes</h2>
+            <p class="text-muted" style="margin:0;">Escolha entre planos regionais ou cobertura global sem tarifas de roaming.</p>
+        </div>
+        <a href="{{ url_for('home.coverage') }}" class="btn btn-outline">Simular roteiro de viagem</a>
     </div>
-    <div id="map-preview" class="map-container"></div>
+    <div class="packages-grid">
+        {% for pkg in packages %}
+        {% set pkg_variant = 'pkg-global' if pkg.code == 301 else ('pkg-europa-plus' if pkg.code == 102 else ('pkg-america-plus' if pkg.code == 202 else 'pkg-basic')) %}
+        {% set pkg_region = 'Mundial' if pkg.code == 301 else ('Europa' if pkg.code in [101, 102] else 'América') %}
+        {% set pkg_sample = 'BR,PT,JP' if pkg.code == 301 else ('PT,ES,FR,IT' if pkg.code == 102 else ('PT,IT' if pkg.code == 101 else ('BR,US,CA' if pkg.code == 202 else 'BR,US'))) %}
+        <article class="pkg-card {{ pkg_variant }}">
+            <div class="pkg-top">
+                <span class="pkg-region">{{ pkg_region }}</span>
+                {% if pkg.code == 102 %}<span class="pkg-badge">Mais popular</span>
+                {% elif pkg.code == 202 %}<span class="pkg-badge pkg-badge-emerald">Melhor custo-benefício</span>
+                {% elif pkg.code == 301 %}<span class="pkg-badge pkg-badge-gold">Cobertura total</span>{% endif %}
+            </div>
+            <small class="pkg-code">Código #{{ pkg.code }}</small>
+            <h3>{{ pkg.name }}</h3>
+            <p class="pkg-data">{{ pkg.data }}</p>
+            <p class="pkg-validity">Validade: {{ pkg.validity }}</p>
+            <a href="{{ url_for('home.coverage', roteiro=pkg_sample) }}" class="pkg-cta">Testar roteiro &#8594;</a>
+        </article>
+        {% endfor %}
+    </div>
 </section>
 
-<!-- Listagem de Países Atendidos -->
 <section class="card">
-    <div class="card-title-row">
-        <h2>Países Atendidos ({{ countries | length }})</h2>
-        <a href="{{ url_for('admin.dashboard') }}" class="btn btn-outline">Gerenciar no Painel Admin</a>
+    <h2>Dúvidas rápidas</h2>
+    <div class="faq-list">
+        <details>
+            <summary>O que é um eSIM e preciso trocar meu chip?</summary>
+            <p>O eSIM é um chip virtual já embutido nos celulares modernos. Você mantém seu número principal e usa a GlobalSIM apenas para dados no exterior.</p>
+        </details>
+        <details>
+            <summary>Posso usar o mesmo pacote em vários países?</summary>
+            <p>Sim. Os planos Europa e América cobrem múltiplos países da respectiva região, e o pacote Global funciona em qualquer país atendido.</p>
+        </details>
+        <details>
+            <summary>Como saber qual pacote escolher?</summary>
+            <p>Acesse <a href="{{ url_for('home.coverage') }}" class="link-action">Consulta & Cobertura</a> e informe os códigos dos países da viagem para receber a recomendação automática.</p>
+        </details>
     </div>
-
-    {% if countries %}
-        <div class="table-responsive">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>País</th>
-                        <th>Região</th>
-                        <th>Operadora Parceira</th>
-                        <th>Tecnologia</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for c in countries %}
-                        <tr>
-                            <td><span class="code-pill">{{ c.code }}</span></td>
-                            <td><strong>{{ c.country }}</strong></td>
-                            <td>{{ c.region }}</td>
-                            <td>{{ c.provider }}</td>
-                            <td><span class="tech-badge">{{ c.tech }}</span></td>
-                            <td>
-                                <a href="{{ url_for('home.index', codigo=c.code) }}" class="link-action">Consultar Hash</a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    {% else %}
-        <p class="text-muted">Nenhum país cadastrado no momento.</p>
-    {% endif %}
 </section>
 {% endblock %}
 
 {% block scripts %}
-<script>
-    window.countriesData = {{ countries | tojson }};
-</script>
-<script src="{{ url_for('static', filename='js/map_preview.js') }}"></script>
+<script src="{{ url_for('static', filename='js/home_interactive.js') }}"></script>
 {% endblock %}

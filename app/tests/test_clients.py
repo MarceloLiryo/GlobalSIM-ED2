@@ -176,6 +176,8 @@ def test_client_web_flow(web):
     browser.post("/clientes/recomendar", data={"id": 58372, "roteiro": "IT,XX"})
     assert app.extensions["clients"].get_by_id(58372).pacote == 301
     assert browser.get("/").status_code == 200
+    assert browser.get("/cobertura").status_code == 200
+    assert browser.get("/?codigo=IT").status_code == 302
     assert browser.get("/admin/").status_code == 200
 
 

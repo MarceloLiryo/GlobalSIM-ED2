@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}GlobalSIM - EDII{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -11,13 +12,14 @@
     <header class="topbar">
         <div class="container topbar-content">
             <a href="{{ url_for('home.index') }}" class="brand">
-                <span class="brand-badge">eSIM</span>
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="GlobalSIM" class="brand-logo">
                 <strong>GlobalSIM</strong> <small>EDII</small>
             </a>
             <nav class="nav-links">
-                <a href="{{ url_for('home.index') }}" class="nav-link">Consulta & Cobertura</a>
+                <a href="{{ url_for('home.index') }}" class="nav-link">Início</a>
+                <a href="{{ url_for('home.coverage') }}" class="nav-link">Consulta & Cobertura</a>
                 <a href="{{ url_for('admin.dashboard') }}" class="nav-link nav-admin">Painel Admin (Tabela Hash)</a>
-                <a href="{{ url_for('clients.dashboard') }}" class="nav-link">Clientes & eSIMs</a>
+                <a href="{{ url_for('clients.dashboard') }}" class="nav-link">Clientes & eSIMs (Árvore B)</a>
             </nav>
         </div>
     </header>
@@ -39,6 +41,7 @@
     <footer class="footer">
         <div class="container">
             <p>GlobalSIM — Estruturas de Dados II (UNEB) · Etapas 1 e 2: Tabela Hash & Árvore B</p>
+            <p>Criadores: blanskijanderson-coder &amp; Marcelo Livros</p>
         </div>
     </footer>
 
