@@ -701,19 +701,96 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 12px 14px;
+    padding: 14px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.trust-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: #e0f2fe;
+    color: var(--primary-hover);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+.trust-icon svg {
+    width: 18px;
+    height: 18px;
 }
 .trust-item strong {
     display: block;
     font-size: 1.25rem;
     color: var(--primary-hover);
+    font-variant-numeric: tabular-nums;
 }
 .trust-item span {
     font-size: 0.8rem;
     color: var(--text-muted);
 }
-.landing-split {
+.about-featured {
+    text-align: center;
+    background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+    border-color: #bae6fd;
+    margin-bottom: 20px;
+    padding: 28px 26px;
+}
+.about-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: #e0f2fe;
+    color: var(--primary-hover);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+.about-featured h2 {
+    font-size: 1.45rem;
+    margin-bottom: 10px;
+}
+.about-lead {
+    max-width: 66ch;
+    margin: 0 auto 10px auto;
+    color: var(--text-main);
+    font-size: 0.98rem;
+}
+.about-sub {
+    max-width: 62ch;
+    margin: 0 auto 20px auto;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+.about-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    text-align: left;
+}
+.about-pillar {
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    padding: 12px 14px;
+}
+.about-pillar strong {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--primary-hover);
+    margin-bottom: 4px;
+}
+.about-pillar span {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+}
+.landing-how {
     margin-bottom: 20px;
 }
 .feature-list {
@@ -1000,6 +1077,9 @@ body {
     }
     .trust-bar {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .about-pillars {
+        grid-template-columns: 1fr;
     }
 }
 

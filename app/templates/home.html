@@ -38,38 +38,62 @@
 
 <section class="trust-bar" aria-label="Indicadores da GlobalSIM">
     <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </span>
         <strong>{{ countries_count }}</strong>
         <span>Países com cobertura</span>
     </div>
     <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/><path d="M9 7h6v5H9z"/></svg>
+        </span>
         <strong>{{ clients_count }}</strong>
         <span>Clientes e eSIMs ativos</span>
     </div>
     <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+        </span>
         <strong>{{ packages | length }}</strong>
         <span>Planos regionais e global</span>
     </div>
     <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
         <strong>24/7</strong>
         <span>Suporte ao viajante</span>
     </div>
 </section>
 
-<div class="grid-2col landing-split">
-    <section class="card">
-        <h2>Sobre a GlobalSIM</h2>
-        <p class="text-muted">
-            Nascemos para acabar com a procura por Wi-Fi e o roaming caro em viagens internacionais.
-            Com tecnologia eSIM, você escolhe o plano antes de embarcar e já pousa conectado.
-        </p>
-        <ul class="feature-list">
-            <li><strong>Sem roaming surpresa:</strong> franquia fechada com validade clara.</li>
-            <li><strong>Roteiro inteligente:</strong> recomendação automática pelo conjunto de países.</li>
-            <li><strong>Parcerias locais 5G:</strong> TIM, Orange, Movistar, T-Mobile, Vivo e NTT Docomo.</li>
-        </ul>
-    </section>
+<section class="card about-featured">
+    <span class="about-eyebrow">Quem Somos</span>
+    <h2>Sobre a GlobalSIM</h2>
+    <p class="about-lead">
+        A <strong>GlobalSIM</strong> nasceu para eliminar o estresse de buscar Wi-Fi público e as faturas imprevisíveis de roaming internacional.
+        Oferecemos acesso móvel 5G instantâneo via <strong>eSIM digital</strong> para viajantes a lazer ou trabalho, conectando você diretamente às principais operadoras locais do destino.
+    </p>
+    <p class="about-sub">
+        Do planejamento do roteiro à ativação da linha, unimos transparência nas franquias, cobertura multi-regional e gestão em tempo real — para você desembarcar e sair navegando.
+    </p>
+    <div class="about-pillars">
+        <div class="about-pillar">
+            <strong>Sem roaming surpresa</strong>
+            <span>Franquia fechada de 5 GB a 20 GB com validade clara de 15 ou 30 dias.</span>
+        </div>
+        <div class="about-pillar">
+            <strong>Roteiro inteligente</strong>
+            <span>Recomendação automática do pacote ideal a partir dos países da sua viagem.</span>
+        </div>
+        <div class="about-pillar">
+            <strong>Parcerias Tier-1 em 5G</strong>
+            <span>Conexão direta via TIM, Orange, Movistar, T-Mobile, Vivo e NTT Docomo.</span>
+        </div>
+    </div>
+</section>
 
-    <section class="card how-card" data-how-stepper>
+<section class="card how-card landing-how" data-how-stepper>
         <div class="card-title-row">
             <h2>Como funciona</h2>
             <div class="stepper-controls" role="group" aria-label="Navegar etapas">
@@ -106,7 +130,6 @@
             <div class="stepper-progress-fill" data-step-progress></div>
         </div>
     </section>
-</div>
 
 <section class="card landing-packages">
     <div class="card-title-row">
