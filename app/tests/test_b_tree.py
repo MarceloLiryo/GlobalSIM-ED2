@@ -106,6 +106,21 @@ class TestBTree(unittest.TestCase):
         self.assertEqual(tree.list_keys(), [10])
         self.assertEqual(len(tree), 1)
 
+    def test_btree_no_duplicate_keys_across_levels(self):
+        elements = list(range(10, 200, 10))
+        tree = BTree(elements, node_size=3)
+        self.assertGreaterEqual(tree.height(), 2)
+
+        root_key = tree.root.keys[0]
+        internal_key = tree.root.lower_nodes[0].keys[0]
+        leaf = tree.root.lower_nodes[0].lower_nodes[0]
+
+        self.assertFalse(tree.tree_insert(root_key))
+        self.assertFalse(tree.tree_insert(internal_key))
+        self.assertFalse(tree.tree_insert(root_key, node=leaf))
+        self.assertEqual(tree.list_keys(), elements)
+        self.assertEqual(len(tree), len(elements))
+
     def test_btree_with_values(self):
         tree = BTree(node_size=3)
         tree.tree_insert(1, value="Cliente A")
