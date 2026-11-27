@@ -74,29 +74,34 @@ class BTree:
         ele é dividido (split) promovendo a chave mediana para o nó pai.
         Se a raiz se dividir, cria uma nova raiz aumentando a altura da árvore.
         """
-        if node is None or node is self.root:
-            target_node = self.root
-            inserted, promoted_key, right_node, promoted_val = self._insert_recursive(
-                target_node, input, value
+        if node is not None and node is not self.root:
+            existing_node, existing_idx = self.search_node(input)
+            if existing_node is not None and existing_idx is not None:
+                if (
+                    value is not None
+                    and existing_node.values
+                    and existing_idx < len(existing_node.values)
+                ):
+                    existing_node.values[existing_idx] = value
+                return False
+
+        inserted, promoted_key, right_node, promoted_val = self._insert_recursive(
+            self.root, input, value
+        )
+
+        # Se a raiz transbordou e dividiu, cria uma nova raiz
+        if promoted_key is not None and right_node is not None:
+            new_root = Node(
+                keys=[promoted_key],
+                values=[promoted_val] if promoted_val is not None else [],
             )
+            new_root.lower_nodes = [self.root, right_node]
+            self._update_node_full(new_root)
+            self._update_node_full(self.root)
+            self._update_node_full(right_node)
+            self.root = new_root
 
-            # Se a raiz transbordou e dividiu, cria uma nova raiz
-            if promoted_key is not None and right_node is not None:
-                new_root = Node(
-                    keys=[promoted_key],
-                    values=[promoted_val] if promoted_val is not None else [],
-                )
-                new_root.lower_nodes = [self.root, right_node]
-                self._update_node_full(new_root)
-                self._update_node_full(self.root)
-                self._update_node_full(right_node)
-                self.root = new_root
-
-            return inserted
-        else:
-            # Inserção a partir de um subnó específico
-            inserted, _, _, _ = self._insert_recursive(node, input, value)
-            return inserted
+        return inserted
 
     def _insert_recursive(
         self,
